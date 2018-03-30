@@ -85,9 +85,15 @@ class WeatherTableViewController: UITableViewController, UISearchBarDelegate{
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
         let weatherObject = forecastData[indexPath.section]
-
+        
+        // convert to celsius starts here
+        let celsius = (Int(weatherObject.temperature)-32)*5/9
+        
+        // end, testing
+        
         cell.textLabel?.text = weatherObject.summary
-        cell.detailTextLabel?.text = "\(Int(weatherObject.temperature))"
+        //cell.detailTextLabel?.text = "\(Int(weatherObject.temperature))"
+        cell.detailTextLabel?.text = "\(Int(celsius)) °C"
         cell.imageView?.image = UIImage(named:weatherObject.icon)
         return cell
     }

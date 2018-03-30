@@ -12,6 +12,7 @@ struct Weather {
     let summary:String
     let icon:String
     let temperature:Double
+    let celsius:Double
     
     enum SerializationError:Error {
         case missing(String)
@@ -26,9 +27,12 @@ struct Weather {
         
         guard let temperature = json["temperatureMax"] as? Double else {throw SerializationError.missing("temp is missing")}
         
+        guard let celsius = json["temperatureMax"] as? Double else {throw SerializationError.missing("temp is missing")}
+        
         self.summary = summary
         self.icon = icon
         self.temperature = temperature
+        self.celsius = celsius
         
     }
     
