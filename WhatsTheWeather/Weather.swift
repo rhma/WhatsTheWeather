@@ -11,8 +11,10 @@ import CoreLocation
 struct Weather {
     let summary:String
     let icon:String
-    let temperature:Double
-    let celsius:Double
+    let temperaturemax:Double
+    let celsiusmax:Double
+    let temperaturemin:Double
+    let celsiusmin:Double
     
     enum SerializationError:Error {
         case missing(String)
@@ -25,14 +27,20 @@ struct Weather {
         
         guard let icon = json["icon"] as? String else {throw SerializationError.missing("icon is missing")}
         
-        guard let temperature = json["temperatureMax"] as? Double else {throw SerializationError.missing("temp is missing")}
+        guard let temperaturemax = json["temperatureMax"] as? Double else {throw SerializationError.missing("temp is missing")}
         
-        guard let celsius = json["temperatureMax"] as? Double else {throw SerializationError.missing("temp is missing")}
+        guard let celsiusmax = json["temperatureMax"] as? Double else {throw SerializationError.missing("temp is missing")}
+        
+        guard let temperaturemin = json["temperatureMin"] as? Double else {throw SerializationError.missing("temp is missing")}
+        
+        guard let celsiusmin = json["temperatureMin"] as? Double else {throw SerializationError.missing("temp is missing")}
         
         self.summary = summary
         self.icon = icon
-        self.temperature = temperature
-        self.celsius = celsius
+        self.temperaturemax = temperaturemax
+        self.celsiusmax = celsiusmax
+        self.temperaturemin = temperaturemin
+        self.celsiusmin = celsiusmin
         
     }
     

@@ -87,13 +87,13 @@ class WeatherTableViewController: UITableViewController, UISearchBarDelegate{
         let weatherObject = forecastData[indexPath.section]
         
         // convert to celsius starts here
-        let celsius = (Int(weatherObject.temperature)-32)*5/9
-        
+        let celsiusmax = (Int(weatherObject.temperaturemax)-32)*5/9
+        let celsiusmin = (Int(weatherObject.temperaturemin)-32)*5/9
         // end, testing
         
         cell.textLabel?.text = weatherObject.summary
         //cell.detailTextLabel?.text = "\(Int(weatherObject.temperature))"
-        cell.detailTextLabel?.text = "\(Int(celsius)) °C"
+        cell.detailTextLabel?.text = "\(Int(celsiusmin)) - \(Int(celsiusmax)) °C"
         cell.imageView?.image = UIImage(named:weatherObject.icon)
         return cell
     }
