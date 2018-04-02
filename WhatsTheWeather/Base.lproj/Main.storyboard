@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--CityWeather-->
+        <!--This week's forecast...-->
         <scene sceneID="2gf-OH-YmF">
             <objects>
                 <tableViewController id="gVn-wG-YVd" customClass="WeatherTableViewController" customModule="WhatsTheWeather" customModuleProvider="target" sceneMemberID="viewController">
@@ -55,7 +55,7 @@
                             <outlet property="delegate" destination="gVn-wG-YVd" id="hQy-Pj-zBE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="CityWeather" id="G8f-Kd-Zp4"/>
+                    <navigationItem key="navigationItem" title="This week's forecast..." id="G8f-Kd-Zp4"/>
                     <connections>
                         <outlet property="searchBar" destination="LMC-hJ-d6S" id="DcC-OK-ifu"/>
                     </connections>
